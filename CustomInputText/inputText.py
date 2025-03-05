@@ -1,21 +1,7 @@
 import tkinter as tk
-from tkinter import Entry
-from typing import overload, override
-
-
-class InputText (Entry):
-    def __init__(self):
-        super().__init__()
-        self.canvas = tk.Canvas()
-    def background_color(self,color:str):
-        self.canvas.config(bg=color)
-        self.config(bg=color)
-    @override
-    def grid_configure(self, cnf=None, **kw):
-        self.grid(cnf, **kw)
-        self.canvas.grid(cnf, **kw)
-        grid = configure = config = self.grid_configure
-
+from tkinter import font, Frame, Entry
+from typing import  override
+import math as math
 
 def canvas_rounded_corners(radius, width, height, color, c: tk.Canvas):
     diameter = radius * 2
@@ -25,6 +11,17 @@ def canvas_rounded_corners(radius, width, height, color, c: tk.Canvas):
     c.create_oval(0, height - diameter, diameter - 1, height - 1, fill=color, width=0)
     c.create_polygon(radius, 0, width - radius, 0, width, radius, width, height - radius, width - radius, height,
                      radius, height, 0, height - radius, 0, radius, fill=color)
+
+class InputText (Frame):
+    def __init__(self,parent,font,color='white'):
+        tk.Frame.__init__(self,parent)
+        self.rowconfigure(0,weight=1)
+        self.columnconfigure(0,weight=1)
+        self.input = Entry(self,bg=color,font=font)
+        self.rounded = tk.Canvas(self,bg=color)
+        self.input.grid(row=0,column=0)
+        self.input.lift()
+        self.rounded.grid(row=0,column=0)
 
 root = tk.Tk()
 root.geometry("500x500")
@@ -36,13 +33,14 @@ root.grid_rowconfigure((0,1,2), weight=1, uniform='a')
 container1 = tk.Canvas(background='red')
 container2 = tk.Canvas(background='green')
 container3 = tk.Canvas(background='blue')
-container1.configure()
+
 container1.grid(row=0,column=0)
 container2.grid(row=1,column=1)
 container3.grid(row=2,column=2)
-ipn = InputText()
-ipn.background_color('green')
-ipn.grid(row=1, column=0)
-ipn.configure(bg='blue')
+root.update()
+
+ipn = InputText(parent = root,font=font.Font(family="Times New Roman",size=8),color='black')
+ipn.grid(row=1,column=0)
+
 
 root.mainloop()
