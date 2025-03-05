@@ -1,9 +1,9 @@
 import tkinter
-import tkinter as tk
 from tkinter.ttk import Label
 from tkinter import font, Entry
 from canvas_rounded_corners import *
 import  inputText
+from inputText import InputText
 
 colors = {"darkerBlue" : "#6DAEC2",
           "lightnessBlue" : "#76C9D5",
@@ -18,8 +18,8 @@ root.configure()
 
 root.columnconfigure((0,1), weight = 1, uniform = 'a')
 root.columnconfigure((2,3), weight = 2, uniform = 'a')
-root.rowconfigure(0,weight = 2, uniform = 'a')
-root.rowconfigure((1,2,3,4,5,6,7,8,9,10,11),weight = 1, uniform = 'a')
+root.rowconfigure(0,weight = 2, uniform = 'b')
+root.rowconfigure((1,2,3,4,5,6,7,8,9,10,11),weight = 1, uniform = 'b')
 
 fontContainer = font.Font(family="Times New Roman", size=8, weight="bold")
 
@@ -82,29 +82,46 @@ canvas_rounded_corners(8,buttonRemove.winfo_width(),buttonRemove.winfo_height(),
 #inputtext
 inputPath = Entry(root,highlightthickness=0,borderwidth=0)
 containerInputPath = tkinter.Canvas(background= colors["grey"],highlightthickness=0)
-inputSelectHandle = Entry(root,highlightthickness=0,borderwidth=0)
-containerInputSelectHandle = tkinter.Canvas(background= colors["lightnessBlue"],highlightthickness=0)
-inputSelectTopOrigin = Entry(root,highlightthickness=0,borderwidth=0)
-containerinputSelectTopOrigin = tkinter.Canvas(background= colors["lightnessBlue"],highlightthickness=0)
 
-inputSelectBottomOrigin = Entry(root,highlightthickness=0,borderwidth=0)
-containerinputSelectBottomOrigin = tkinter.Canvas(background= colors["lightnessBlue"],highlightthickness=0)
-inputMove = Entry(root,highlightthickness=0,borderwidth=0)
-containerMove = tkinter.Canvas(background= colors["lightnessBlue"],highlightthickness=0)
-inputAddedObjects = Entry(root,highlightthickness=0,borderwidth=0)
-containerinputAddedObjects = tkinter.Canvas(background= colors["lightnessBlue"],highlightthickness=0)
+inputSelectHandle = InputText(root,fontContainer,color='white',backgroundcolor=colors["lightnessBlue"],fontcolor='black',radius=10)
+inputSelectTopOrigin = InputText(root,fontContainer,color='white',backgroundcolor=colors["lightnessBlue"],fontcolor='black',radius=10)
+inputSelectBottomOrigin = InputText(root,fontContainer,color='white',backgroundcolor=colors["lightnessBlue"],fontcolor='black',radius=10)
+
+inputMove1 = InputText(root,fontContainer,color='white',backgroundcolor=colors["lightnessBlue"],fontcolor='black',radius=10)
+inputMove2 = InputText(root,fontContainer,color='white',backgroundcolor=colors["lightnessBlue"],fontcolor='black',radius=10)
+inputMove3 = InputText(root,fontContainer,color='white',backgroundcolor=colors["lightnessBlue"],fontcolor='black',radius=10)
+inputMove4 = InputText(root,fontContainer,color='white',backgroundcolor=colors["lightnessBlue"],fontcolor='black',radius=10)
+inputMove5 = InputText(root,fontContainer,color='white',backgroundcolor=colors["lightnessBlue"],fontcolor='black',radius=10)
+inputMove6 = InputText(root,fontContainer,color='white',backgroundcolor=colors["lightnessBlue"],fontcolor='black',radius=10)
 
 #inputtext grid
 containerInputPath.grid(row=0,column=2,columnspan=2,pady=10,padx=10, sticky='nswe')
 inputPath.grid(row=0,column=2,columnspan=2,pady=15,padx=20, sticky='nswe')
 inputPath.lift()
+inputSelectHandle.grid(row=2,column=0,columnspan=2,rowspan=2,padx=20,pady=15,sticky='nswe')
+inputSelectTopOrigin.grid(row=5,column=0,columnspan=2,rowspan=2,padx=20,pady=15,sticky='nswe')
+inputSelectBottomOrigin.grid(row=8,column=0,columnspan=2,rowspan=2,padx=20,pady=15,sticky='nswe')
 
-inputSelectHandle.grid(row=2,column=0,rowspan=2,pady =10,sticky="we",padx=15, columnspan=2)
+inputMove1.grid(row=3,column=2,padx=40,pady=5,sticky='nswe')
+inputMove2.grid(row=4,column=2,padx=40,pady=5,sticky='nswe')
+inputMove3.grid(row=5,column=2,padx=40,pady=5,sticky='nswe')
+inputMove4.grid(row=6,column=2,padx=40,pady=5,sticky='nswe')
+inputMove5.grid(row=7,column=2,padx=40,pady=5,sticky='nswe')
+inputMove6.grid(row=8,column=2,padx=40,pady=5,sticky='nswe')
 
 
 #rounded corners inputText
 root.update()
 canvas_rounded_corners(4,containerInputPath.winfo_width(),containerInputPath.winfo_height(),"white", containerInputPath)
+inputSelectHandle.add_background(width=inputSelectHandle.winfo_width(),height=inputSelectHandle.winfo_height())
+inputSelectTopOrigin.add_background(width=inputSelectTopOrigin.winfo_width(),height=inputSelectTopOrigin.winfo_height())
+inputSelectBottomOrigin.add_background(width=inputSelectBottomOrigin.winfo_width(),height=inputSelectBottomOrigin.winfo_height())
+inputMove1.add_background(width=inputMove1.winfo_width(),height=inputMove1.winfo_height())
+inputMove2.add_background(width=inputMove2.winfo_width(),height=inputMove2.winfo_height())
+inputMove3.add_background(width=inputMove3.winfo_width(),height=inputMove3.winfo_height())
+inputMove4.add_background(width=inputMove4.winfo_width(),height=inputMove4.winfo_height())
+inputMove5.add_background(width=inputMove5.winfo_width(),height=inputMove5.winfo_height())
+inputMove6.add_background(width=inputMove6.winfo_width(),height=inputMove6.winfo_height())
 
 #label containers
 labelHandleContainer = Label(text="select handle",font=fontContainer,foreground='white' , background=colors["lightnessBlue"])

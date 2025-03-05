@@ -19,7 +19,7 @@ class InputText (Frame):
         self.rowconfigure(0,weight=1,uniform='a')
         self.columnconfigure(0,weight=1,uniform='a')
 
-        self.can = tk.Canvas(self,background=backgroundcolor)
+        self.can = tk.Canvas(self,background=backgroundcolor,highlightthickness=0)
         self.inp = Entry(self,background=color,borderwidth=0,foreground=fontcolor, font = font)
 
         #fill all, and add pad to corners
