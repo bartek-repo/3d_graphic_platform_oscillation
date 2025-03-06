@@ -1,4 +1,6 @@
-from tkinter import Frame, Entry
+import tkinter as tk
+from tkinter import Frame
+from tkinter import Entry
 
 
 class InputText (Frame):
