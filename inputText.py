@@ -19,6 +19,7 @@ class InputText (Frame):
         cn3ov4 = tk.Canvas(parent, bg=background_color, highlightthickness=0, width=radius * 2, height=radius * 2)
         cn3ov4.grid(row=row, column=column, padx=item_pad_x, pady=item_pad_y, sticky='ne')
 
+
         cn3ov1.create_oval(0, 0, radius * 2, radius * 2, fill=item_color, outline=item_color)
 
         cn3ov2.create_oval(0, 0, radius * 2, radius * 2, fill=item_color, outline=item_color)
